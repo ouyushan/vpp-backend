@@ -5,6 +5,8 @@ import lombok.Data;
 
 /**
  * Domänen-Entität der Wasserkraftanlagen
+ *
+ * 水电站领域实体
  */
 @Data
 public class WaterEnergyEntity {

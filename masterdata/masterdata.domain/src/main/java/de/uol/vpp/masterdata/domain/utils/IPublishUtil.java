@@ -5,6 +5,8 @@ import de.uol.vpp.masterdata.domain.valueobjects.*;
 /**
  * Diese Schnittstellendefinition beschreibt die Funktionen, die die Editierbarkeit von Komponenten eine VK prüft.
  * Die Komponenten eines VK, sind nämlich nur editierbar, wenn das VK nicht veröffentlicht ist.
+ *
+ * 此接口定义描述了 VK 检查组件可编辑性的函数。仅当 VK 未发布时，VK 的组件才可编辑。
  */
 public interface IPublishUtil {
 

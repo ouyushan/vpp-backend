@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Service von alternativen Erzeugungsanlagen in der Serviceschicht
+ * 服务层中替代发电厂服务的接口定义
  */
 public interface IOtherEnergyService {
     /**

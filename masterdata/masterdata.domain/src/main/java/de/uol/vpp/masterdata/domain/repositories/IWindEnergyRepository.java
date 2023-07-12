@@ -11,6 +11,7 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das Repository von Windkraftanlagen
+ * 风力涡轮机存储库的接口定义
  */
 public interface IWindEnergyRepository {
     /**

@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für das VK-Service der Serviceschicht
+ * 服务层 VK 服务的接口定义
  */
 public interface IVirtualPowerPlantService {
     /**

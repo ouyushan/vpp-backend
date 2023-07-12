@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Service von Solaranlagen in der Serviceschicht
+ * 服务层中太阳能系统服务的接口定义
  */
 public interface ISolarEnergyService {
     /**

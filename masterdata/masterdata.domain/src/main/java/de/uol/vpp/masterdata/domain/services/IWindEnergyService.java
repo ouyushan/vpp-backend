@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Service von Windkraftanlagen in der Serviceschicht
+ * 服务层中风力涡轮机服务的接口定义
  */
 public interface IWindEnergyService {
     /**

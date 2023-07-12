@@ -11,6 +11,7 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das Repository von alternativen Erzeugungsanlagen
+ * 其他发电厂存储库的接口定义
  */
 public interface IOtherEnergyRepository {
     /**

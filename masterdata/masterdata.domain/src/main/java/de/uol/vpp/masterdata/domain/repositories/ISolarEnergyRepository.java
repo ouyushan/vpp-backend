@@ -11,6 +11,7 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das Repository von Solaranlagen
+ * 太阳能系统存储库的接口定义
  */
 public interface ISolarEnergyRepository {
     /**

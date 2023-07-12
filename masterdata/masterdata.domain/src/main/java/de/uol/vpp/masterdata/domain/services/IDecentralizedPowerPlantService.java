@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition des DK-Service für die Serviceschicht
+ * 服务层的 DK 服务的接口定义
  */
 public interface IDecentralizedPowerPlantService {
     /**

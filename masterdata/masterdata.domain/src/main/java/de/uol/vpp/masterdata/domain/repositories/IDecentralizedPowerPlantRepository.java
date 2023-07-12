@@ -11,6 +11,8 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das DK-Repository
+ *
+ * DK 存储库的接口定义
  */
 public interface IDecentralizedPowerPlantRepository {
     /**

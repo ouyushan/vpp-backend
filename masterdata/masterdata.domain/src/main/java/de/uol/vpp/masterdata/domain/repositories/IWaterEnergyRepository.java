@@ -11,6 +11,7 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das Repository von Wasserkraftanlagen
+ * 水电站存储库的接口定义
  */
 public interface IWaterEnergyRepository {
     /**

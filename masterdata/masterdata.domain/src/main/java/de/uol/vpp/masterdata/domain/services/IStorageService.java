@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Service von Speicheranlagen in der Serviceschicht
+ * 服务层中存储资产服务的接口定义
  */
 public interface IStorageService {
     /**

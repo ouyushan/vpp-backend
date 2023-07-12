@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * Schnittstellendefinition für das Haushalt-Repository
+ * 家用存储库的接口定义
  */
 public interface IHouseholdRepository {
     /**

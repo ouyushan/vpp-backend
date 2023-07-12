@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Service von Wasserkraftanlagen in der Serviceschicht
+ * 服务层中水电站服务的接口定义
  */
 public interface IWaterEnergyService {
     /**

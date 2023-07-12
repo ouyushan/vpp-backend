@@ -7,6 +7,8 @@ import lombok.Data;
 
 /**
  * Domain-Entität einer alternativen Erzeugungsanlage mit konstanter Leistung
+ *
+ * 具有恒定功率的替代发电厂的域实体
  */
 @Data
 public class OtherEnergyEntity {
@@ -21,6 +23,8 @@ public class OtherEnergyEntity {
     /**
      * Kapazität der Anlage, mit wie viel %-Leistung die Erzeugungsanlage läuft
      * Eine Kapazität von 0% bedeutet, dass die Anlage nicht läuft
+     *
+     * 工厂的容量，在发电厂运行的功率百分比下 容量为 0% 表示工厂未运行
      */
     private OtherEnergyCapacityVO capacity;
 }

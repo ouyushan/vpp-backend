@@ -5,6 +5,8 @@ import lombok.Data;
 
 /**
  * Domänen-Entität einer Windkraftanlage
+ *
+ * 风力涡轮机的域实体
  */
 @Data
 public class WindEnergyEntity {

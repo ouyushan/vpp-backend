@@ -1,6 +1,10 @@
 package de.uol.vpp.masterdata.domain.exceptions;
 
+import java.io.Serial;
+
 public class VirtualPowerPlantRepositoryException extends Exception {
+
+    private static final long serialVersionUID = -6147263447028523076L;
 
     public VirtualPowerPlantRepositoryException(String message) {
         super(message);
