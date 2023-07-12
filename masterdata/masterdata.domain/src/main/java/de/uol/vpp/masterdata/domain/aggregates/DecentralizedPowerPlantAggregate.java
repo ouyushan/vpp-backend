@@ -9,6 +9,8 @@ import lombok.EqualsAndHashCode;
 /**
  * Domänen-Aggregat für dezentralte Kraftwerke
  * Erweitert abstrakte Klasse {@link DomainHasProducersAndStorages}
+ *
+ * 分布式发电厂的域聚合 扩展抽象类 {@link DomainHasProducersAndStorages}
  */
 @EqualsAndHashCode(callSuper = true)
 @Data

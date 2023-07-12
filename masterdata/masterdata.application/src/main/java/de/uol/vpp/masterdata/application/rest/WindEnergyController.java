@@ -37,7 +37,7 @@ public class WindEnergyController {
     public ResponseEntity<?> getAllWindEnergysByDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Windkraftanlagen wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "风力发电机查询成功.",
                             service.getAllByDecentralizedPowerPlantId(decentralizedPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)

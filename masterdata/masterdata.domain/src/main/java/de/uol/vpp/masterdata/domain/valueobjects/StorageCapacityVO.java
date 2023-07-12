@@ -7,6 +7,8 @@ import lombok.Setter;
 /**
  * Ein Value Object ist für die Validierung der Attribute zuständig
  * Für eine Definition des Objektes siehe {@link de.uol.vpp.masterdata.domain.entities.StorageEntity}
+ *
+ * 值对象负责验证属性 有关对象的定义，请参阅 {@link de.uol.vpp.masterdata.domain.entities.StorageEntity}
  */
 @Getter
 @Setter

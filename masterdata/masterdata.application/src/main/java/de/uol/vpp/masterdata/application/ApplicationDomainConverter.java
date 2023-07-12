@@ -18,6 +18,8 @@ import java.util.stream.Collectors;
 /**
  * Konvertierungsklasse zwischen Applikations- und Domänenschicht
  * Ist für die Kommunikation mit der Serviceschicht notwendig
+ *
+ * 应用层和域层之间的转换类 是与服务层通信所必需的
  */
 @Service
 public class ApplicationDomainConverter {

@@ -9,10 +9,13 @@ import java.util.Optional;
 
 /**
  * DK JPA Repository für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的 DK JPA 存储库
  */
 public interface DecentralizedPowerPlantJpaRepository extends JpaRepository<DecentralizedPowerPlant, Long> {
     /**
      * Hole spezifische DK
+     *
+     * 获取特定的 DK
      *
      * @param decentralizedPowerPlantId Id des DK
      * @return DK
@@ -21,6 +24,8 @@ public interface DecentralizedPowerPlantJpaRepository extends JpaRepository<Dece
 
     /**
      * Hole alle DK eines VK
+     *
+     * 获取所有的 DK
      *
      * @param virtualPowerPlant VK
      * @return Liste von DK

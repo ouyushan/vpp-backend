@@ -11,6 +11,8 @@ import java.util.List;
 /**
  * Domänen-Aggregat für virtuelle Kraftwerke
  * Ist das höchstmögliche Objekt und beinhaltet alle DK und Haushalte mit deren Anlagen
+ *
+ * 虚拟发电厂的域聚合 是可能的最高对象，包括所有 DC 和家庭及其工厂
  */
 @Data
 public class VirtualPowerPlantAggregate {
