@@ -23,6 +23,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IOtherEnergyRepository}
+ * 接口定义 {@link IOtherEnergyRepository} 的实现
  */
 @RequiredArgsConstructor
 @Service

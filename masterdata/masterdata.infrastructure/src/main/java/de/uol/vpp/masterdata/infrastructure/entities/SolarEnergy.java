@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Datenbank-Entität der Solaranlagen {@link de.uol.vpp.masterdata.domain.entities.SolarEnergyEntity}
+ * 太阳能装置的数据库实体 {@link de.uol.vpp.masterdata.domain.entities.SolarEnergyEntity}
  */
 @Entity
 @Data

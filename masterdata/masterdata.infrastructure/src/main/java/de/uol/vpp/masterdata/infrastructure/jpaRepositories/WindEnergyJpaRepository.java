@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * JPA Repository der Windkraftanlagen für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的风力涡轮机的 JPA 存储库
  */
 public interface WindEnergyJpaRepository extends JpaRepository<WindEnergy, Long> {
     /**

@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * JPA Repository der Solaranlagen für die Kommunikation mit der Datenbank
+ * JPA太阳能装置存储库，用于与数据库通信
  */
 public interface SolarEnergyJpaRepository extends JpaRepository<SolarEnergy, Long> {
     /**

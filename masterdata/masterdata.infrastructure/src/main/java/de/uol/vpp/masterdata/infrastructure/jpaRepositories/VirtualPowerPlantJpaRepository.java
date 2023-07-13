@@ -7,6 +7,7 @@ import java.util.Optional;
 
 /**
  * VK JPA Repository für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的 VK JPA 存储库
  */
 public interface VirtualPowerPlantJpaRepository extends JpaRepository<VirtualPowerPlant, Long> {
     /**

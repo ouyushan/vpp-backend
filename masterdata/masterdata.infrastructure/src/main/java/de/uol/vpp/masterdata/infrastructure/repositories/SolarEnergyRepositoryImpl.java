@@ -6,6 +6,7 @@ import de.uol.vpp.masterdata.domain.entities.SolarEnergyEntity;
 import de.uol.vpp.masterdata.domain.exceptions.ProducerException;
 import de.uol.vpp.masterdata.domain.exceptions.ProducerRepositoryException;
 import de.uol.vpp.masterdata.domain.repositories.ISolarEnergyRepository;
+import de.uol.vpp.masterdata.domain.repositories.IStorageRepository;
 import de.uol.vpp.masterdata.domain.valueobjects.SolarEnergyIdVO;
 import de.uol.vpp.masterdata.infrastructure.InfrastructureEntityConverter;
 import de.uol.vpp.masterdata.infrastructure.entities.DecentralizedPowerPlant;
@@ -20,7 +21,9 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
+/**
+ * Implementierung der Schnittstellendefinition {@link ISolarEnergyRepository}
+ */
 @RequiredArgsConstructor
 @Service
 public class SolarEnergyRepositoryImpl implements ISolarEnergyRepository {

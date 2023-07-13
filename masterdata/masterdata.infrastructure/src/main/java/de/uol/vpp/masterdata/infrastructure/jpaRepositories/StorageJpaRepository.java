@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * JPA Repository der Speicheranlagen für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的存储资产的 JPA 存储库
  */
 public interface StorageJpaRepository extends JpaRepository<Storage, Long> {
     /**

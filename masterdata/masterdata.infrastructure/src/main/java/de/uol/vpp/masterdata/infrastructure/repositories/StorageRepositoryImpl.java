@@ -5,6 +5,7 @@ import de.uol.vpp.masterdata.domain.aggregates.HouseholdAggregate;
 import de.uol.vpp.masterdata.domain.entities.StorageEntity;
 import de.uol.vpp.masterdata.domain.exceptions.StorageException;
 import de.uol.vpp.masterdata.domain.exceptions.StorageRepositoryException;
+import de.uol.vpp.masterdata.domain.repositories.IOtherEnergyRepository;
 import de.uol.vpp.masterdata.domain.repositories.IStorageRepository;
 import de.uol.vpp.masterdata.domain.valueobjects.StorageIdVO;
 import de.uol.vpp.masterdata.infrastructure.InfrastructureEntityConverter;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IStorageRepository}
+ * 接口定义 {@link IStorageRepository} 的实现
  */
 @RequiredArgsConstructor
 @Service

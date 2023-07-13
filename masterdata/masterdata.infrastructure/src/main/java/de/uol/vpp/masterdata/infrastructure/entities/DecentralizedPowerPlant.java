@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Datenbank-Entität der DK {@link de.uol.vpp.masterdata.domain.aggregates.DecentralizedPowerPlantAggregate}
+ * DK 的数据库实体 {@link de.uol.vpp.masterdata.domain.aggregates.DecentralizedPowerPlantAggregate}
  */
 @Entity
 @Data

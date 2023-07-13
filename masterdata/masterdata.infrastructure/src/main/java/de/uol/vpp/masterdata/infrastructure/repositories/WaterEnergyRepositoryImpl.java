@@ -5,6 +5,7 @@ import de.uol.vpp.masterdata.domain.aggregates.HouseholdAggregate;
 import de.uol.vpp.masterdata.domain.entities.WaterEnergyEntity;
 import de.uol.vpp.masterdata.domain.exceptions.ProducerException;
 import de.uol.vpp.masterdata.domain.exceptions.ProducerRepositoryException;
+import de.uol.vpp.masterdata.domain.repositories.IVirtualPowerPlantRepository;
 import de.uol.vpp.masterdata.domain.repositories.IWaterEnergyRepository;
 import de.uol.vpp.masterdata.domain.valueobjects.WaterEnergyIdVO;
 import de.uol.vpp.masterdata.infrastructure.InfrastructureEntityConverter;
@@ -23,6 +24,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IWaterEnergyRepository}
+ * 接口定义 {@link IWaterEnergyRepository} 的实现
  */
 @RequiredArgsConstructor
 @Service

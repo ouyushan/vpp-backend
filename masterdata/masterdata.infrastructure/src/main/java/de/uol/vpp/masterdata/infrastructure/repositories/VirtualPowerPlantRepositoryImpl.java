@@ -3,6 +3,7 @@ package de.uol.vpp.masterdata.infrastructure.repositories;
 import de.uol.vpp.masterdata.domain.aggregates.VirtualPowerPlantAggregate;
 import de.uol.vpp.masterdata.domain.exceptions.VirtualPowerPlantException;
 import de.uol.vpp.masterdata.domain.exceptions.VirtualPowerPlantRepositoryException;
+import de.uol.vpp.masterdata.domain.repositories.IStorageRepository;
 import de.uol.vpp.masterdata.domain.repositories.IVirtualPowerPlantRepository;
 import de.uol.vpp.masterdata.domain.valueobjects.DecentralizedPowerPlantIdVO;
 import de.uol.vpp.masterdata.domain.valueobjects.HouseholdIdVO;
@@ -21,6 +22,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IVirtualPowerPlantRepository}
+ * 接口定义 {@link IVirtualPowerPlantRepository} 的实现
  */
 @RequiredArgsConstructor
 @Service

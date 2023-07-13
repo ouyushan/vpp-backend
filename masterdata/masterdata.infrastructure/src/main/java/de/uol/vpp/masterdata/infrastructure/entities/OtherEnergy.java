@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Datenbank-Entität der alternativen Erzeugungsanlagen {@link de.uol.vpp.masterdata.domain.entities.OtherEnergyEntity}
+ * 替代发电厂的数据库实体 {@link de.uol.vpp.masterdata.domain.entities.OtherEnergyEntity}
  */
 @Entity
 @Data

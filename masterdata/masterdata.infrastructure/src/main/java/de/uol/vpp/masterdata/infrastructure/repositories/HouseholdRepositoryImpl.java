@@ -19,6 +19,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IHouseholdRepository}
+ * 接口定义 {@link IHouseholdRepository} 的实现
  */
 @Service
 @RequiredArgsConstructor

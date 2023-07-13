@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Datenbank-Entität der Windkraftanlagen {@link de.uol.vpp.masterdata.domain.entities.WindEnergyEntity}
+ * 风力涡轮机数据库实体 {@link de.uol.vpp.masterdata.domain.entities.WindEnergyEntity}
  */
 @Entity
 @Data

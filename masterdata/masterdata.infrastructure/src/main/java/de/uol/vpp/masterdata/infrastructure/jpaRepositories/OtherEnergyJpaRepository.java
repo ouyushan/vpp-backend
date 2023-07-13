@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * JPA Repository der alternativen Erzeugungsanlagen für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的替代发电厂的 JPA 存储库
  */
 public interface OtherEnergyJpaRepository extends JpaRepository<OtherEnergy, Long> {
     /**

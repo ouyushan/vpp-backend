@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Datenbank-Entität der VK {@link de.uol.vpp.masterdata.domain.aggregates.VirtualPowerPlantAggregate}
+ * VK database entity {@link de.uol.vpp.masterdata.domain.aggregates.VirtualPowerPlantAggregate}
  */
 @Entity
 @Data

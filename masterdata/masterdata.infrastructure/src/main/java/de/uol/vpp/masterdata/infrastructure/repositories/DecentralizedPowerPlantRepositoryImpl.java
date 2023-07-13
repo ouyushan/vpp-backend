@@ -20,6 +20,7 @@ import java.util.Optional;
 
 /**
  * Implementierung der Schnittstellendefinition {@link IDecentralizedPowerPlantRepository}
+ * 接口定义 {@link IDecentralizedPowerPlantRepository} 的实现
  */
 @RequiredArgsConstructor
 @Service

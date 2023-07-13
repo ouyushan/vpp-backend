@@ -9,6 +9,7 @@ import java.util.Optional;
 
 /**
  * Haushalt JPA Repository für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的家用 JPA 存储库
  */
 public interface HouseholdJpaRepository extends JpaRepository<Household, Long> {
     /**

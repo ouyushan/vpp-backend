@@ -17,13 +17,17 @@ import java.util.Optional;
 /**
  * Die Methoden dieser Klasse prüfen die Editierbarkeit der einzelnen Komponenten eines virtuellen Kraftwerks.
  * Ein VK ist nur dann editierbar, wenn es nicht veröffentlicht ist.
+ * 此类的方法检查虚拟发电厂的各个组件的可编辑性。VK 只有在未发布时才可编辑。
  */
 @Service
 @RequiredArgsConstructor
 public class PublishUtilImpl implements IPublishUtil {
 
+    // “已发布”状态检查失败，因为
     private static final String DOES_NOT_BELONG_PREFIX = "Überprüfung des 'veröffentlicht'-Status ist fehlgeschlagen, da ";
+    // 不是英国会员
     private static final String DOES_NOT_BELONG_POSTFIX = " nicht dem VK angehört";
+    // “已发布”状态检查失败，因为 VK 不存在
     private static final String DOES_NOT_EXIST = "Überprüfung des 'veröffentlicht'-Status ist fehlgeschlagen, da VK nicht existiert";
     private final IVirtualPowerPlantRepository virtualPowerPlantRepository;
     private final IDecentralizedPowerPlantRepository decentralizedPowerPlantRepository;

@@ -10,6 +10,7 @@ import java.util.Optional;
 
 /**
  * JPA Repository der Wasserkraftanlagen für die Kommunikation mit der Datenbank
+ * 用于与数据库通信的水电站 JPA 存储库
  */
 public interface WaterEnergyJpaRepository extends JpaRepository<WaterEnergy, Long> {
     /**

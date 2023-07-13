@@ -16,6 +16,7 @@ import java.util.stream.Collectors;
 
 /**
  * Konvertierungsklasse zwischen der Infrastruktur und Domänenschicht für die Kommunikation mit der Serviceschicht
+ * 基础结构层和域层之间的转换类，用于与服务层进行通信
  */
 @Service
 @RequiredArgsConstructor

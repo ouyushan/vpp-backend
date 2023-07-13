@@ -6,6 +6,7 @@ import javax.persistence.*;
 
 /**
  * Datenbank-Entität der Wasserkraftanlagen {@link de.uol.vpp.masterdata.domain.entities.WaterEnergyEntity}
+ * 水电站数据库实体 {@link de.uol.vpp.masterdata.domain.entities.WaterEnergyEntity}
  */
 @Entity
 @Data
