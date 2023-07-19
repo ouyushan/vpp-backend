@@ -1,6 +1,6 @@
 package de.uol.vpp.masterdata.domain.utils;
 
-import java.io.Serial;
+
 
 public class PublishException extends Exception {
 

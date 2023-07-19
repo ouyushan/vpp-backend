@@ -1,6 +1,6 @@
 package de.uol.vpp.masterdata.domain.exceptions;
 
-import java.io.Serial;
+
 
 public class ProducerException extends Exception {
     private static final long serialVersionUID = 5309520306131206230L;

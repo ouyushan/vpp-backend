@@ -12,6 +12,7 @@ public class TimestampUtils {
     /**
      * Wandelt ein unix-Timestamp in ein ZonedDateTime um und berücksichtigt zusätzlich,
      * ob aktueller Zeitstempel auf eine viertelstunde abgerundet werden soll
+     * 将 unix 时间戳转换为 ZonedDateTime，并考虑当前时间戳是否应向下舍入到一刻钟
      *
      * @param ts        unix-Timestamp
      * @param isQuarter soll auf eine viertelstunde abgerundet werden?

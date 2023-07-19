@@ -1,6 +1,6 @@
 package de.uol.vpp.masterdata.domain.exceptions;
 
-import java.io.Serial;
+
 
 public class DecentralizedPowerPlantException extends Exception {
 
