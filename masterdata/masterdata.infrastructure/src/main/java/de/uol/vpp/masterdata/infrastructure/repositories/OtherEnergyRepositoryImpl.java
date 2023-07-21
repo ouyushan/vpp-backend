@@ -135,7 +135,7 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
                     householdJpaRepository.save(household.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("新能源电厂 %s 无法分配到预算中, 新能源电厂 已分配给实体.", otherEnergyEntity.getId().getValue())
+                            String.format("新能源电厂 %s 无法分配到住户中, 新能源电厂 已分配给实体.", otherEnergyEntity.getId().getValue())
                     );
                 }
             } else {

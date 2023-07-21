@@ -88,7 +88,7 @@ public class HouseholdController {
         try {
             service.save(converter.toDomain(dto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(
-                    true, false, String.format("预算 %s 已成功创建.", dto.getHouseholdId()), null));
+                    true, false, String.format("住户 %s 已成功创建.", dto.getHouseholdId()), null));
         } catch (HouseholdServiceException | HouseholdException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
@@ -112,7 +112,7 @@ public class HouseholdController {
     public ResponseEntity<?> deleteHousehold(@PathVariable String householdId, String virtualPowerPlantId) {
         try {
             service.delete(householdId, virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("预算 %s 已成功删除.", householdId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("住户 %s 已成功删除.", householdId), null));
         } catch (HouseholdServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
@@ -137,7 +137,7 @@ public class HouseholdController {
         try {
             service.update(householdId, converter.toDomain(newDto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("预算 %s 已成功更新.", householdId), null));
+                    String.format("住户 %s 已成功更新.", householdId), null));
         } catch (HouseholdServiceException | HouseholdException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null

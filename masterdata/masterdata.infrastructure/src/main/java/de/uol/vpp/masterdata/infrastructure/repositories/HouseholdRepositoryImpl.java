@@ -88,7 +88,7 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
             jpaRepository.delete(household);
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("预算 %s 无法删除, 因为住户信息不存在.", id.getValue())
+                    String.format("住户 %s 无法删除, 因为住户信息不存在.", id.getValue())
             );
         }
     }
@@ -107,13 +107,13 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
                 virtualPowerPlantJpaRepository.save(virtualPowerPlantJpaEntity);
             } else {
                 throw new HouseholdRepositoryException(
-                        String.format("预算 %s 分配虚拟电厂 %s 因为预算已经分配给一个实体.", entity.getHouseholdId().getValue(),
+                        String.format("住户 %s 分配虚拟电厂 %s 因为住户已经分配给一个实体.", entity.getHouseholdId().getValue(),
                                 jpaEntity.getVirtualPowerPlant().getId())
                 );
             }
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("预算 %s 分配虚拟电厂%s 未指定的.", entity.getHouseholdId().getValue(),
+                    String.format("住户 %s 分配虚拟电厂%s 未指定的.", entity.getHouseholdId().getValue(),
                             virtualPowerPlant.getVirtualPowerPlantId().getValue())
             );
         }
@@ -130,7 +130,7 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
             jpaRepository.save(jpaEntity);
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("预算 %s 无法更新, 因为住户信息不存在.", id.getValue())
+                    String.format("住户 %s 无法更新, 因为住户信息不存在.", id.getValue())
             );
         }
     }
