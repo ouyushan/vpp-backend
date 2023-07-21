@@ -83,7 +83,7 @@ public class WeatherRestClient {
      */
     private WeatherDTO setWeatherDTO(JsonNode current) {
         WeatherDTO currentWeather = new WeatherDTO();
-        currentWeather.setTimestamp(ZonedDateTime.ofInstant(Instant.ofEpochSecond(current.get("dt").asLong()), ZoneId.of("GMT+2")));
+        currentWeather.setTimestamp(ZonedDateTime.ofInstant(Instant.ofEpochSecond(current.get("dt").asLong()), ZoneId.of("GMT+8")));
         currentWeather.setTemperatureCelsius(current.get("temp").asDouble());
         currentWeather.setWindSpeed(current.get("wind_speed").asDouble());
         currentWeather.setAirHumidity(current.get("humidity").asDouble());

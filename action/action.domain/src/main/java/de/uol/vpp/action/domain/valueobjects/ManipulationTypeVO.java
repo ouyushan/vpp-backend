@@ -13,7 +13,7 @@ public class ManipulationTypeVO {
 
     public ManipulationTypeVO(ManipulationTypeEnum value) throws ManipulationException {
         if (value == null || !isValidType(value)) {
-            throw new ManipulationException("manipulationType", "Manipulation");
+            throw new ManipulationException("manipulationType", "操作");
         }
         this.value = value;
     }

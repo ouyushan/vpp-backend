@@ -63,7 +63,7 @@ public class SolarRestClient {
                         data.forEach((forecast) -> {
                             SolarForecastDTO forecastDTO = new SolarForecastDTO();
                             forecastDTO.setTimestamp(
-                                    ZonedDateTime.ofInstant(Instant.parse(forecast.get("date").asText()), ZoneId.of("GMT+2"))
+                                    ZonedDateTime.ofInstant(Instant.parse(forecast.get("date").asText()), ZoneId.of("GMT+8"))
                             );
                             forecastDTO.setValue(forecast.get("value").asDouble());
                             result.add(forecastDTO);
@@ -72,17 +72,17 @@ public class SolarRestClient {
                     }
                 } else {
                     throw new SolarRestClientException(
-                            String.format("Die Solaranlage %s konnte mittels der Meteomatics-API nicht prognostiziert werden.", dto.getSolarEnergyId())
+                            String.format("光伏电站 %s 无法使用Meteomatics API进行预测.", dto.getSolarEnergyId())
                     );
                 }
             } else {
                 throw new SolarRestClientException(
-                        String.format("Die Solaranlage %s konnte mittels der Meteomatics-API nicht prognostiziert werden.", dto.getSolarEnergyId())
+                        String.format("光伏电站 %s 无法使用Meteomatics API进行预测.", dto.getSolarEnergyId())
                 );
             }
         } catch (RestClientException | JsonProcessingException e) {
             throw new SolarRestClientException(
-                    String.format("Die Solaranlage %s konnte mittels der Meteomatics-API nicht prognostiziert werden.", dto.getSolarEnergyId())
+                    String.format("光伏电站 %s 无法使用Meteomatics API进行预测.", dto.getSolarEnergyId())
             );
         }
         return null;

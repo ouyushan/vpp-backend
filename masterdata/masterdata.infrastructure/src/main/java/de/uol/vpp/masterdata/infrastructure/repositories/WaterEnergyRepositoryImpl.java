@@ -107,7 +107,7 @@ public class WaterEnergyRepositoryImpl implements IWaterEnergyRepository {
                     decentralizedPowerPlantJpaRepository.save(dpp.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die Zuweisung der Wasserkraftanlage %s ist fehlgeschlagen, da die Wasserkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
+                            String.format("Die Zuweisung der Wasserkraftanlage %s 失败, da die Wasserkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
                     );
                 }
             } else {
@@ -136,7 +136,7 @@ public class WaterEnergyRepositoryImpl implements IWaterEnergyRepository {
                     householdJpaRepository.save(household.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die Zuweisung der Wasserkraftanlage %s ist fehlgeschlagen, da die Wasserkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
+                            String.format("Die Zuweisung der Wasserkraftanlage %s 失败, da die Wasserkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
                     );
                 }
             } else {

@@ -49,7 +49,7 @@ public class DecentralizedPowerPlantRepositoryImpl implements IDecentralizedPowe
                 return result;
             } else {
                 throw new VirtualPowerPlantRepositoryException(
-                        String.format("Das VK %s konnte nicht gefunden werden, um das DK abzufragen.", virtualPowerPlantAggregate.getVirtualPowerPlantId().getValue())
+                        String.format("虚拟电厂 %s 不存在.", virtualPowerPlantAggregate.getVirtualPowerPlantId().getValue())
                 );
             }
         } catch (DecentralizedPowerPlantException | VirtualPowerPlantRepositoryException e) {
@@ -91,13 +91,13 @@ public class DecentralizedPowerPlantRepositoryImpl implements IDecentralizedPowe
                 virtualPowerPlantJpaRepository.save(virtualPowerPlantJpaEntity);
             } else {
                 throw new DecentralizedPowerPlantRepositoryException(
-                        String.format("Das DK %s konnte dem VK %s nicht zugewiesen werden, da DK bereits zugewiesen wurde.", domainEntity.getDecentralizedPowerPlantId().getValue(),
+                        String.format("分布式电厂 %s 分配到虚拟电厂 %s 失败，因为分布式电厂已被分配.", domainEntity.getDecentralizedPowerPlantId().getValue(),
                                 jpaEntity.getVirtualPowerPlant().getId())
                 );
             }
         } else {
             throw new DecentralizedPowerPlantRepositoryException(
-                    String.format("Das DK %s konnte dem VK %s nicht zugewiesen werden.", domainEntity.getDecentralizedPowerPlantId().getValue(),
+                    String.format("分布式电厂 %s 的虚拟电厂 %s 未指定.", domainEntity.getDecentralizedPowerPlantId().getValue(),
                             virtualPowerPlant.getVirtualPowerPlantId().getValue())
             );
         }
@@ -112,7 +112,7 @@ public class DecentralizedPowerPlantRepositoryImpl implements IDecentralizedPowe
             jpaRepository.save(jpaEntity);
         } else {
             throw new DecentralizedPowerPlantRepositoryException(
-                    String.format("Das DK %s konnte nicht aktualisiert werden, da das DK nicht gefunden wurde.", id.getValue())
+                    String.format("分布式电厂 %s 无法更新, 因为分布式电厂不存在.", id.getValue())
             );
         }
     }
@@ -132,7 +132,7 @@ public class DecentralizedPowerPlantRepositoryImpl implements IDecentralizedPowe
             jpaRepository.delete(dpp);
         } else {
             throw new DecentralizedPowerPlantRepositoryException(
-                    String.format("Das DK %s konnte nicht gelöscht werden, da das DK nicht gefunden wurde.", id.getValue())
+                    String.format("分布式电厂 %s 无法删除，因为分布式电厂不存在.", id.getValue())
             );
         }
     }

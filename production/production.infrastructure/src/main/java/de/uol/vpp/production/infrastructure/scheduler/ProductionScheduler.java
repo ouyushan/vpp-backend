@@ -74,11 +74,11 @@ public class ProductionScheduler {
         String actionRequestId = message.getActionRequestId();
         try {
             //Erstellung des aktuellen Zeitstempels
-            ZonedDateTime currentZDT = ZonedDateTime.now(ZoneId.of("GMT+2"));
+            ZonedDateTime currentZDT = ZonedDateTime.now(ZoneId.of("GMT+8"));
             ZonedDateTime currentWithoutSeconds = ZonedDateTime.of(
                     currentZDT.getYear(), currentZDT.getMonthValue(), currentZDT.getDayOfMonth(), currentZDT.getHour(),
                     currentZDT.getMinute() - (currentZDT.getMinute() % 15),
-                    0, 0, ZoneId.of("GMT+2")
+                    0, 0, ZoneId.of("GMT+8")
             );
             // Prüfung, ob VK veröffentlicht ist
             if (masterdataRestClient.isActiveVpp(vppId)) {
@@ -127,11 +127,11 @@ public class ProductionScheduler {
                 // Sende Nachricht an Maßnahmen-Service, dass Erzeugungsprognose erfolgreich beendet ist
                 rabbitMQSender.send(actionRequestId, currentWithoutSeconds.toEpochSecond());
             } else {
-                log.error("Die Erstellung der Erzeugungsprognose ist fehlgeschlagen, da das {} VK nicht veröffentlicht ist", vppId);
+                log.error("发电量预测创建失败, 由于 {} 虚拟电厂未发布", vppId);
                 rabbitMQSender.sendFailed(actionRequestId);
             }
         } catch (Exception e) {
-            log.error("Die Erstellung der Erzeugungsprognose ist fehlgeschlagen.", e);
+            log.error("发电量预测创建失败.", e);
             rabbitMQSender.sendFailed(actionRequestId);
         }
 
@@ -263,7 +263,7 @@ public class ProductionScheduler {
                 this.createAndAssignProductionProducer(windEnergyDTO.getWindEnergyId(), "WIND",
                         currentValue, possibleValue, currentWithoutSeconds.toEpochSecond(), productionAggregate);
             } else {
-                log.error("Die Erstellung eines Erzeugungswert ist fehlgeschlagen, da die Wetterdaten fehlerhaft sind.");
+                log.error("发电量创建失败, 由于天气数据不正确.");
                 rabbitMQSender.sendFailed(actionRequestId);
             }
         }

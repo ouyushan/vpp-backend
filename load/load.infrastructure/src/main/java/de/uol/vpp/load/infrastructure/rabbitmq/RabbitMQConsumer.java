@@ -26,8 +26,8 @@ public class RabbitMQConsumer {
      */
     @RabbitListener(queues = "${vpp.rabbitmq.queue.action.to.load}")
     public void receivedActionRequest(ActionRequestMessage message) {
-        log.info("Maßnahmenabfrage wurde erstellt und entgegengenommen: Maßnahmenabfrage {}, VK {}", message.getActionRequestId(), message.getVppId());
-        log.info("Beginne mit der Erstellung der Lasten.");
+        log.info("已接收操作请求：操作请求 {}, 虚拟电厂 {}", message.getActionRequestId(), message.getVppId());
+        log.info("开始创建负荷.");
         loadScheduler.createLoad(message.getActionRequestId(), message.getVppId());
     }
 

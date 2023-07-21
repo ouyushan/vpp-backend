@@ -63,7 +63,7 @@ public class LoadScheduler {
             HSSFWorkbook workbook = new HSSFWorkbook(classPathResource.getInputStream());
             sheet = workbook.getSheetAt(0);
         } catch (IOException e) {
-            log.error("Das Laden des Standardlastprofils H0 ist fehlgeschlagen.", e);
+            log.error("加载标准负荷配置文件H0 失败.", e);
         }
     }
 
@@ -76,11 +76,11 @@ public class LoadScheduler {
     public void createLoad(String actionRequestId, String vppId) {
         try {
             // Erstelle aktuellen Zeitstempel
-            ZonedDateTime currentZDT = ZonedDateTime.now(ZoneId.of("GMT+2"));
+            ZonedDateTime currentZDT = ZonedDateTime.now(ZoneId.of("GMT+8"));
             ZonedDateTime currentWithoutSeconds = ZonedDateTime.of(
                     currentZDT.getYear(), currentZDT.getMonthValue(), currentZDT.getDayOfMonth(), currentZDT.getHour(),
                     currentZDT.getMinute() - (currentZDT.getMinute() % 15),
-                    0, 0, ZoneId.of("GMT+2")
+                    0, 0, ZoneId.of("GMT+8")
             );
             if (masterdataRestClient.isActiveVpp(vppId)) {
                 // Erstelle 97 Lasten (24 Stunden * 4 = 97 Viertelstunden)

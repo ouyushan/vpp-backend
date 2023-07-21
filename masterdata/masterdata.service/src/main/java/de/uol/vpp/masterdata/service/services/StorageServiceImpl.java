@@ -104,7 +104,7 @@ public class StorageServiceImpl implements IStorageService {
                 repository.assignToDecentralizedPowerPlant(domainEntity, dpp);
             } else {
                 throw new StorageServiceException(
-                        String.format("Die Zuweisung der Speicheranlage %s zum DK %s ist fehlgeschlagen, da das DK nicht gefunden wurde.", domainEntity.getStorageId().getValue(),
+                        String.format("Die Zuweisung der Speicheranlage %s zum DK %s 失败, da das DK nicht gefunden wurde.", domainEntity.getStorageId().getValue(),
                                 decentralizedPowerPlantId)
                 );
             }
@@ -137,7 +137,7 @@ public class StorageServiceImpl implements IStorageService {
                 repository.assignToHousehold(domainEntity, household);
             } else {
                 throw new StorageServiceException(
-                        String.format("Die Zuweisung des Speichers %s zum Haushalt %s ist fehlgeschlagen, da der Haushalt nicht gefunden wurde.", domainEntity.getStorageId().getValue(),
+                        String.format("Die Zuweisung des Speichers %s zum Haushalt %s 失败, da der Haushalt nicht gefunden wurde.", domainEntity.getStorageId().getValue(),
                                 householdId)
                 );
             }

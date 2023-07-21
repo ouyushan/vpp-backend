@@ -12,7 +12,7 @@ public class GridManipulationRatedPowerVO {
 
     public GridManipulationRatedPowerVO(Double value) throws ManipulationException {
         if (value == null || value < 0.) {
-            throw new ManipulationException("ratedPower", "GridManipulation");
+            throw new ManipulationException("ratedPower", "电网操作");
         }
         this.value = value;
     }

@@ -45,7 +45,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -59,7 +59,7 @@ public class VirtualPowerPlantController {
     public ResponseEntity<?> getAllActiveVirtualPowerPlants() {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die aktiven VK wurden erfolgreich angefragt.",
+                    new ApiResponse(true, false, "已成功激活虚拟电厂.",
                             service.getAllActives().stream().map(converter::toApplication).collect(Collectors.toList()))
                     , HttpStatus.OK);
         } catch (VirtualPowerPlantServiceException e) {
@@ -69,7 +69,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -84,7 +84,7 @@ public class VirtualPowerPlantController {
     public ResponseEntity<?> getOneVirtualPowerPlant(@PathVariable String virtualPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, String.format("Das VK %s wurde erfolgreich angefragt.", virtualPowerPlantId),
+                    new ApiResponse(true, false, String.format("虚拟电厂 %s 查询成功.", virtualPowerPlantId),
                             converter.toApplication(service.get(virtualPowerPlantId)))
                     , HttpStatus.OK);
         } catch (VirtualPowerPlantServiceException e) {
@@ -92,7 +92,7 @@ public class VirtualPowerPlantController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, e.getMessage(), e);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -107,11 +107,11 @@ public class VirtualPowerPlantController {
     public ResponseEntity<?> saveVirtualPowerPlant(@RequestBody VirtualPowerPlantDTO dto) {
         try {
             if (dto.isPublished()) {
-                throw new VirtualPowerPlantException("Ein VK kann nicht intial veröffentlicht sein.");
+                throw new VirtualPowerPlantException("虚拟电厂不能频繁创建.");
             }
             service.save(converter.toDomain(dto));
             return ResponseEntity.ok().body(new ApiResponse(true, false, "" +
-                    String.format("Das VK %s wurde erfolgreich angelegt", dto.getVirtualPowerPlantId()), null));
+                    String.format("虚拟电厂%s 已成功创建", dto.getVirtualPowerPlantId()), null));
         } catch (VirtualPowerPlantServiceException | VirtualPowerPlantException e) {
             log.error(e);
             return new ResponseEntity<>(new ApiResponse(
@@ -119,7 +119,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -135,7 +135,7 @@ public class VirtualPowerPlantController {
         try {
             service.delete(virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Das VK %s wurde erfolgreich gelöscht.", virtualPowerPlantId), null));
+                    String.format("虚拟电厂 %s 已成功删除.", virtualPowerPlantId), null));
         } catch (VirtualPowerPlantServiceException e) {
             log.error(e);
             return new ResponseEntity<>(new ApiResponse(
@@ -143,7 +143,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -159,7 +159,7 @@ public class VirtualPowerPlantController {
         try {
             service.publish(virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Das VK %s wurde erfolgreich veröffentlicht.", virtualPowerPlantId),
+                    String.format("虚拟电厂 %s 已成功发布.", virtualPowerPlantId),
                     null));
         } catch (VirtualPowerPlantServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -167,7 +167,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
 
@@ -184,7 +184,7 @@ public class VirtualPowerPlantController {
         try {
             service.unpublish(virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Die Veröffentlichung des VK %s wurde erfolgreich rückgängig gemacht.", virtualPowerPlantId),
+                    String.format("虚拟电厂 %s 已成功回收.", virtualPowerPlantId),
                     null));
         } catch (VirtualPowerPlantServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -192,7 +192,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -209,7 +209,7 @@ public class VirtualPowerPlantController {
         try {
             service.update(virtualPowerPlantId, converter.toDomain(newDto));
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Das VK %s wurde erfolgreich aktualisiert.", virtualPowerPlantId),
+                    String.format("虚拟电厂 %s 已成功更新.", virtualPowerPlantId),
                     null));
         } catch (VirtualPowerPlantServiceException | VirtualPowerPlantException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -217,7 +217,7 @@ public class VirtualPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

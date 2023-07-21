@@ -30,6 +30,6 @@ public class RabbitMQSender {
     public void sendActionRequest(ActionRequestMessage message) {
         rabbitTemplate.convertAndSend(actionRequestExchange, actionToLoadKey, message);
         rabbitTemplate.convertAndSend(actionRequestExchange, actionToProductionKey, message);
-        log.info("Maßnahmenabfrage wurde erstellt und versendet: Maßnahmenabfrage {}, VK {}", message.getActionRequestId(), message.getVppId());
+        log.info("操作请求已创建并发送：操作请求 {}, 虚拟电厂 {}", message.getActionRequestId(), message.getVppId());
     }
 }

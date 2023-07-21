@@ -37,7 +37,7 @@ public class ActionRequestController {
     public ResponseEntity<?> getAllActionRequestsByVppId(@PathVariable String virtualPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Abfrage aller Maßnahmenanfragen war erfolgreich.",
+                    new ApiResponse(true, false, "已成功查询所有操作请求.",
                             actionRequestService.getAllActionRequestByVppId(virtualPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -49,7 +49,7 @@ public class ActionRequestController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -64,7 +64,7 @@ public class ActionRequestController {
     public ResponseEntity<?> getActionRequestById(@PathVariable String actionRequestId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Abfrage einer Maßnahmenanfrage war erfolgreich.",
+                    new ApiResponse(true, false, "操作请求成功.",
                             converter.toApplication(actionRequestService.get(actionRequestId))), HttpStatus.OK);
         } catch (ActionServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -72,7 +72,7 @@ public class ActionRequestController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -88,14 +88,14 @@ public class ActionRequestController {
         try {
             actionRequestService.save(converter.toDomain(dto));
             return ResponseEntity.ok().body(new ApiResponse(true, false, "" +
-                    String.format("Die Maßnahmenanfrage %s wurde erfolgreich angelegt.", dto.getActionRequestId()), null));
+                    String.format("操作请求 %s 已成功创建.", dto.getActionRequestId()), null));
         } catch (ActionServiceException | ActionException | ManipulationException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

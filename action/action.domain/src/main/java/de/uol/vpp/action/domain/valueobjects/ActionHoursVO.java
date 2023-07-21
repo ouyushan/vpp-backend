@@ -12,7 +12,7 @@ public class ActionHoursVO {
 
     public ActionHoursVO(Double value) throws ActionException {
         if (value == null || value < 0.) {
-            throw new ActionException("hours", "Handlungsempfehlung");
+            throw new ActionException("hours", "操作建议");
         }
         this.value = Math.round(1000.0 * value) / 1000.0;
     }

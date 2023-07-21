@@ -15,13 +15,13 @@ public class ActionCatalogEndTimestampVO {
 
     public ActionCatalogEndTimestampVO(Long ts) throws ActionException {
         if (ts == null) {
-            throw new ActionException("endTimestamp", "Handlungsempfehlung");
+            throw new ActionException("endTimestamp", "操作建议");
         }
 
         try {
             this.value = TimestampUtils.toBerlinTimestamp(ts, false);
         } catch (Exception e) {
-            throw new ActionException("endTimestamp", "Handlungsempfehlung", e);
+            throw new ActionException("endTimestamp", "操作建议", e);
         }
     }
 

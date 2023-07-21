@@ -33,7 +33,7 @@ public class LoadController {
     public ResponseEntity<?> getAllLoadsByActionRequestId(@PathVariable String actionRequestId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Abfrage der Last war erfolgreich.",
+                    new ApiResponse(true, false, "负荷查询成功.",
                             loadService.getLoadsByActionRequestId(actionRequestId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -45,7 +45,7 @@ public class LoadController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

@@ -7,10 +7,10 @@ public class DecentralizedPowerPlantException extends Exception {
     private static final long serialVersionUID = 6384268579313299259L;
 
     public DecentralizedPowerPlantException(String attribute) {
-        super("Validierung des " + attribute + "-Attributs der Entität DK ist fehlgeschlagen.");
+        super("验证分布式电厂实体的属性" + attribute + "失败.");
     }
 
     public DecentralizedPowerPlantException(String attribute, Throwable cause) {
-        super("Validierung des " + attribute + "-Attributs der Entität DK ist fehlgeschlagen.", cause);
+        super("验证分布式电厂实体的属性" + attribute + "失败.", cause);
     }
 }

@@ -18,7 +18,7 @@ public class TimestampUtils {
      * @return Datumsobjekt mit einer ZoneId
      */
     public static ZonedDateTime toBerlinTimestamp(Long ts, boolean isQuarter) {
-        ZoneId zone = ZoneId.of("Europe/Berlin");
+        ZoneId zone = ZoneId.of("Asia/Shanghai");
         ZonedDateTime zdt = Instant.ofEpochSecond(ts).atZone(zone);
         if (isQuarter) {
             zdt = ZonedDateTime.of(zdt.getYear(), zdt.getMonthValue(),

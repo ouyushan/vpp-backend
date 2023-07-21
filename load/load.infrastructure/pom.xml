@@ -38,6 +38,11 @@
             <artifactId>mariadb-java-client</artifactId>
             <version>1.5.7</version>
         </dependency>
+<!--        <dependency>-->
+<!--            <groupId>mysql</groupId>-->
+<!--            <artifactId>mysql-connector-java</artifactId>-->
+<!--            <version>8.0.31</version>-->
+<!--        </dependency>-->
         <dependency>
             <groupId>de.uol.vpp.load</groupId>
             <artifactId>load.domain</artifactId>

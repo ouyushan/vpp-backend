@@ -80,7 +80,7 @@ public class ActionRequestRepositoryImpl implements IActionRequestRepository {
             } else {
                 saved.setStatus(StatusEnum.FAILED);
                 actionRequestJpaRepository.save(saved);
-                throw new ActionRepositoryException("Eine Maßnahmanabfrage kann nur erstellt werden, wenn der Erzeugungs- und Lastenservice aktiv ist.");
+                throw new ActionRepositoryException("只有当发电和储能服务处于活动状态时，才能创建度量值查询.");
             }
         }
     }

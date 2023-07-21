@@ -12,7 +12,7 @@ public class StorageManipulationHoursVO {
 
     public StorageManipulationHoursVO(Double value) throws ManipulationException {
         if (value == null || value < 0.) {
-            throw new ManipulationException("hours", "StorageManipulation");
+            throw new ManipulationException("hours", "储能操作");
         }
         this.value = value;
     }

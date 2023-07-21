@@ -34,7 +34,7 @@ public interface IActionRequestService {
      * <p>
      * Ab hier ist eine Maßnahmenabfrage "STARTED"
      *
-     * @param domainEntity Maßnahmenabfrage
+     * @param actionRequestAggregate Maßnahmenabfrage
      * @throws ActionServiceException e
      */
     void save(ActionRequestAggregate actionRequestAggregate) throws ActionServiceException;

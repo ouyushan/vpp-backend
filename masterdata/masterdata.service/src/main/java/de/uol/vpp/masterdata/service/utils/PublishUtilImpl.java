@@ -24,11 +24,11 @@ import java.util.Optional;
 public class PublishUtilImpl implements IPublishUtil {
 
     // “已发布”状态检查失败，因为
-    private static final String DOES_NOT_BELONG_PREFIX = "Überprüfung des 'veröffentlicht'-Status ist fehlgeschlagen, da ";
+    private static final String DOES_NOT_BELONG_PREFIX = "验证“已发布”状态失败，原因是";
     // 不是英国会员
-    private static final String DOES_NOT_BELONG_POSTFIX = " nicht dem VK angehört";
+    private static final String DOES_NOT_BELONG_POSTFIX = " 不是虚拟电厂";
     // “已发布”状态检查失败，因为 VK 不存在
-    private static final String DOES_NOT_EXIST = "Überprüfung des 'veröffentlicht'-Status ist fehlgeschlagen, da VK nicht existiert";
+    private static final String DOES_NOT_EXIST = "验证“已发布”状态失败，因为虚拟电厂不存在";
     private final IVirtualPowerPlantRepository virtualPowerPlantRepository;
     private final IDecentralizedPowerPlantRepository decentralizedPowerPlantRepository;
     private final IHouseholdRepository householdRepository;
@@ -58,7 +58,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasDpp) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "DK" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "分布式电厂" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -90,7 +90,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasHousehold) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "Haushalt" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "住户" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -129,7 +129,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasSolar) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "Solarenergieanlage" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "光伏发电站" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -169,7 +169,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasOther) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "alternative Erzeugungsanlage" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "其它能源电站" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -210,7 +210,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasWind) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "Windkraftanlage" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "风力电站" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -250,7 +250,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasWater) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "Wasserkraftanlage" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "水力电站" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);
@@ -291,7 +291,7 @@ public class PublishUtilImpl implements IPublishUtil {
                 if (hasStorage) {
                     return !vpp.getPublished().isValue();
                 } else {
-                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "Speicher" + DOES_NOT_BELONG_POSTFIX);
+                    throw new PublishException(DOES_NOT_BELONG_PREFIX + "储能系统" + DOES_NOT_BELONG_POSTFIX);
                 }
             } else {
                 throw new PublishException(DOES_NOT_EXIST);

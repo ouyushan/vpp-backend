@@ -13,7 +13,7 @@ public class ActionCatalogProblemTypeVO {
 
     public ActionCatalogProblemTypeVO(ProblemTypeEnum value) throws ActionException {
         if (value == null) {
-            throw new ActionException("problemType", "Handlungsempfehlungskatalog");
+            throw new ActionException("problemType", "操作建议目录");
         }
         this.value = value;
     }

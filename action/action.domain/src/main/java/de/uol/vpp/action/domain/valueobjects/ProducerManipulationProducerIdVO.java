@@ -12,7 +12,7 @@ public class ProducerManipulationProducerIdVO {
 
     public ProducerManipulationProducerIdVO(String value) throws ManipulationException {
         if (value == null || value.isBlank() || value.isEmpty()) {
-            throw new ManipulationException("producerId", "ProducerManipulation");
+            throw new ManipulationException("producerId", "发电操作");
         }
         this.value = value.toUpperCase();
     }

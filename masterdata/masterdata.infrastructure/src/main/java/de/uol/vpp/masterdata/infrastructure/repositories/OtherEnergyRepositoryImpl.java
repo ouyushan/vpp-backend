@@ -46,7 +46,7 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
                 }
                 return result;
             } else {
-                throw new ProducerRepositoryException(String.format("Das DK %s konnte nicht gefunden werden, um die alternativen Erzeugungsanlagen abzufragen.", decentralizedPowerPlantAggregate.getDecentralizedPowerPlantId().getValue()));
+                throw new ProducerRepositoryException(String.format("通过分布式电厂 %s 无法查询其它能源.", decentralizedPowerPlantAggregate.getDecentralizedPowerPlantId().getValue()));
             }
         } catch (ProducerException e) {
             throw new ProducerRepositoryException(e.getMessage(), e);
@@ -65,7 +65,7 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
                 }
                 return result;
             } else {
-                throw new ProducerRepositoryException(String.format("Der Haushalt %s konnte nicht gefunden werden, um die alternativen Erzeugungsanlagen abzufragen.", householdAggregate.getHouseholdId().getValue()));
+                throw new ProducerRepositoryException(String.format("通过住户信息 %s 无法查询其它能源.", householdAggregate.getHouseholdId().getValue()));
             }
         } catch (ProducerException e) {
             throw new ProducerRepositoryException(e.getMessage(), e);
@@ -106,17 +106,17 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
                     decentralizedPowerPlantJpaRepository.save(dpp.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die alternative Erzeugungsanlage %s konnte dem DK nicht zugewiesen werden, da die alternative Erzeugungsanlage bereits einer Entität zugewiesen ist.", otherEnergyEntity.getId().getValue())
+                            String.format("其它能源 %s 无法分配给分布式电厂，因为已分配给一个实体.", otherEnergyEntity.getId().getValue())
                     );
                 }
             } else {
                 throw new ProducerRepositoryException(
-                        String.format("Die alternative Erzeugungsanlage %s konnte nicht gefunden werden.", otherEnergyEntity.getId().getValue())
+                        String.format("其它能源 %s 找不到.", otherEnergyEntity.getId().getValue())
                 );
             }
         } else {
             throw new ProducerRepositoryException(
-                    String.format("Das DK %s konnte für die Zuweisung der alternativen Erzeugungeanlage nicht gefunden werden.", decentralizedPowerPlantAggregate.getDecentralizedPowerPlantId().getValue())
+                    String.format("分布式电厂 %s 无法找到其它能源进行分配.", decentralizedPowerPlantAggregate.getDecentralizedPowerPlantId().getValue())
             );
         }
     }
@@ -135,17 +135,17 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
                     householdJpaRepository.save(household.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die alternative Erzeugungsanlage %s konnte dem Haushalt nicht zugewiesen werden, da die alternative Erzeugungsanlage bereits einer Entität zugewiesen ist.", otherEnergyEntity.getId().getValue())
+                            String.format("新能源电厂 %s 无法分配到预算中, 新能源电厂 已分配给实体.", otherEnergyEntity.getId().getValue())
                     );
                 }
             } else {
                 throw new ProducerRepositoryException(
-                        String.format("Die alternative Erzeugungsanlage %s konnte nicht gefunden werden.", otherEnergyEntity.getId().getValue())
+                        String.format("新能源电厂 %s 找不到.", otherEnergyEntity.getId().getValue())
                 );
             }
         } else {
             throw new ProducerRepositoryException(
-                    String.format("Das DK %s konnte für die Zuweisung der alternativen Erzeugungsanlage nicht gefunden werden.", householdAggregate.getHouseholdId().getValue())
+                    String.format("分布式电厂 %s 无法找到分布式电厂的分配.", householdAggregate.getHouseholdId().getValue())
             );
         }
     }
@@ -157,7 +157,7 @@ public class OtherEnergyRepositoryImpl implements IOtherEnergyRepository {
             jpaRepository.delete(jpaEntity.get());
         } else {
             throw new ProducerRepositoryException(
-                    String.format("Die alternative Erzeugungsanlage %s konnte nicht gelöscht werden, da die alternative Erzeugungsanlage nicht gefunden wurde.", id.getValue())
+                    String.format("新能源电厂 %s 无法删除, 因为没有查到新能源电厂.", id.getValue())
             );
         }
     }

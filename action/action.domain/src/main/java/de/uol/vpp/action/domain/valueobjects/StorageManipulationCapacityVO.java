@@ -12,7 +12,7 @@ public class StorageManipulationCapacityVO {
 
     public StorageManipulationCapacityVO(Double value) throws ManipulationException {
         if (value == null || value < 0.) {
-            throw new ManipulationException("capacity", "StorageManipulation");
+            throw new ManipulationException("capacity", "储能操作");
         }
         this.value = value;
     }

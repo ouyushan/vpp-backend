@@ -12,7 +12,7 @@ public class ActionRequestShortageThresholdVO {
 
     public ActionRequestShortageThresholdVO(Double value) throws ActionException {
         if (value == null || value < 0.) {
-            throw new ActionException("shortageThreshold", "Maßnahmenabfrage");
+            throw new ActionException("shortageThreshold", "操作请求");
         }
         this.value = value;
     }

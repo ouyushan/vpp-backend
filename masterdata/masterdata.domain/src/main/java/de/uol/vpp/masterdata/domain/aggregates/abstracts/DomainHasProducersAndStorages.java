@@ -10,7 +10,7 @@ import java.util.List;
  * Abstrakte Klasse für Haushalte und DK
  * Enthält die Speicher- und Erzeugungsanlagen
  *
- * 家庭和DK的抽象类 包括储能和发电设施
+ * 住户和DK的抽象类 包括储能和发电设施
  */
 @Data
 public abstract class DomainHasProducersAndStorages {

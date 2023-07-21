@@ -584,7 +584,7 @@ public class ActionCatalogInfrastructureService {
                 actionRequest.setStatus(new ActionRequestStatusVO(StatusEnum.FAILED));
                 actionRequestRepository.saveActionRequest(actionRequest, false);
             } else {
-                log.error("Beim Setzen des Maßnahmenabfragenstatus auf FAILED ist ein Fehler aufgetreten.");
+                log.error("将操作查询状态设置为“失败”时出错.");
             }
 
         } catch (ActionRepositoryException | ActionException e) {

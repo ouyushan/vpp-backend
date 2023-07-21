@@ -12,7 +12,7 @@ public class ActionIsStorageVO {
 
     public ActionIsStorageVO(Boolean value) throws ActionException {
         if (value == null) {
-            throw new ActionException("isStorage", "Handlungsempfehlung");
+            throw new ActionException("isStorage", "操作建议");
         }
         this.value = value;
     }

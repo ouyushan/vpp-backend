@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Datenbank-Entität der Haushalte {@link de.uol.vpp.masterdata.domain.aggregates.HouseholdAggregate}
- * 家庭数据库实体 {@link de.uol.vpp.masterdata.domain.aggregates.HouseholdAggregate}
+ * 住户数据库实体 {@link de.uol.vpp.masterdata.domain.aggregates.HouseholdAggregate}
  */
 @Entity
 @Data

@@ -42,7 +42,7 @@ public class RabbitMQSender {
         loadMessage.setActionRequestId(actionRequestId);
         loadMessage.setTimestamp(timestamp);
         rabbitTemplate.convertAndSend(forecastGenerationExchange, loadToActionKey, loadMessage);
-        log.info("Erzeugungsprognose wird an Maßnahmenservice versendet: Maßnahmenabfrage {}, Zeitstempel {}", loadMessage.getActionRequestId(), loadMessage.getTimestamp());
+        log.info("发电量预测发送给请求服务: 操作请求 {}, 时间戳 {}", loadMessage.getActionRequestId(), loadMessage.getTimestamp());
     }
 
     /**
@@ -54,6 +54,6 @@ public class RabbitMQSender {
         ActionFailedMessage failedMessage = new ActionFailedMessage();
         failedMessage.setActionRequestId(actionRequestId);
         rabbitTemplate.convertAndSend(actionRequestFailedExchange, loadToActionFailedKey, failedMessage);
-        log.info("Erstellung der Erzeugungsprognose fehlgeschlagen: Maßnahmenabfrage {}", failedMessage.getActionRequestId());
+        log.info("发电量预测创建失败: 操作请求 {}", failedMessage.getActionRequestId());
     }
 }

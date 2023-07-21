@@ -36,7 +36,7 @@ public class DecentralizedPowerPlantController {
     public ResponseEntity<?> getAllDecentralizedPowerPlantsByVirtualPowerPlantId(@PathVariable String virtualPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Alle DK wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "已成功查询所有的分布式电厂.",
                             service.getAllByVppId(virtualPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -46,7 +46,7 @@ public class DecentralizedPowerPlantController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -61,7 +61,7 @@ public class DecentralizedPowerPlantController {
     public ResponseEntity<?> getOneDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Alle DK wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "已成功查询所有的分布式电厂.",
                             converter.toApplication(service.get(decentralizedPowerPlantId)))
                     , HttpStatus.OK);
         } catch (DecentralizedPowerPlantServiceException e) {
@@ -70,7 +70,7 @@ public class DecentralizedPowerPlantController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -88,14 +88,14 @@ public class DecentralizedPowerPlantController {
         try {
             service.save(converter.toDomain(dto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(
-                    true, false, String.format("Das DK %s wurde erfolgreich angelegt", dto.getDecentralizedPowerPlantId()), null));
+                    true, false, String.format("分布式电厂 %s 已成功创建", dto.getDecentralizedPowerPlantId()), null));
         } catch (DecentralizedPowerPlantServiceException | DecentralizedPowerPlantException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -111,14 +111,14 @@ public class DecentralizedPowerPlantController {
     public ResponseEntity<?> deleteDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId, @RequestParam String virtualPowerPlantId) {
         try {
             service.delete(decentralizedPowerPlantId, virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("Das DK %s wurde erfolgreich gelöscht.", decentralizedPowerPlantId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("分布式电厂 %s 已成功删除.", decentralizedPowerPlantId), null));
         } catch (DecentralizedPowerPlantServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -135,14 +135,14 @@ public class DecentralizedPowerPlantController {
     public ResponseEntity<?> updateDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId, @RequestBody DecentralizedPowerPlantDTO newDto, @RequestParam String virtualPowerPlantId) {
         try {
             service.update(decentralizedPowerPlantId, converter.toDomain(newDto), virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("Das DK %s wurde erfolgreich aktualisiert.", decentralizedPowerPlantId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("分布式电厂 %s 已成功更新.", decentralizedPowerPlantId), null));
         } catch (DecentralizedPowerPlantServiceException | DecentralizedPowerPlantException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

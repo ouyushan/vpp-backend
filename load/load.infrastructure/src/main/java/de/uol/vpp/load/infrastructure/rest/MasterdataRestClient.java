@@ -49,9 +49,9 @@ public class MasterdataRestClient {
 
             }
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException("Die Prüfung des Veröffentlichtenstatus mittels des Datenservices ist fehlgeschlagen.", e);
+            throw new MasterdataRestClientException("使用数据服务检查发布状态失败.", e);
         }
-        throw new MasterdataRestClientException("Die Prüfung des Veröffentlichtenstatus mittels des Datenservices ist fehlgeschlagen.");
+        throw new MasterdataRestClientException("使用数据服务检查发布状态失败.");
     }
 
     /**
@@ -80,7 +80,7 @@ public class MasterdataRestClient {
             }
             return ids;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException("Die Anfrage der Haushalte aus dem Datenservice ist fehlgeschlagen.", e);
+            throw new MasterdataRestClientException("住户数据服务检查发布状态失败.", e);
         }
     }
 
@@ -108,9 +108,9 @@ public class MasterdataRestClient {
 
             }
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException("Die Abfrage der Haushaltsmitglieder aus dem Datenservice ist fehlgeschlagen.", e);
+            throw new MasterdataRestClientException("从数据服务查询住户成员失败.", e);
         }
-        throw new MasterdataRestClientException("Die Abfrage der Haushaltsmitglieder aus dem Datenservice ist fehlgeschlagen.");
+        throw new MasterdataRestClientException("从数据服务查询住户成员失败.");
     }
 
 

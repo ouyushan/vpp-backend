@@ -15,13 +15,13 @@ public class StorageManipulationEndTimestampVO {
 
     public StorageManipulationEndTimestampVO(Long ts) throws ManipulationException {
         if (ts == null) {
-            throw new ManipulationException("startTimestamp", "StorageManipulation");
+            throw new ManipulationException("startTimestamp", "储能操作");
         }
 
         try {
             this.value = TimestampUtils.toBerlinTimestamp(ts, true);
         } catch (Exception e) {
-            throw new ManipulationException("startTimestamp", "StorageManipulation", e);
+            throw new ManipulationException("startTimestamp", "储能操作", e);
         }
     }
 

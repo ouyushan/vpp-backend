@@ -37,7 +37,7 @@ public class StorageController {
     public ResponseEntity<?> getAllStoragesByDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Speicheranlagen wurden erfolgreich angefragt.",
+                    new ApiResponse(true, false, "已成功查询储能系统.",
                             service.getAllByDecentralizedPowerPlantId(decentralizedPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -47,7 +47,7 @@ public class StorageController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -63,7 +63,7 @@ public class StorageController {
     public ResponseEntity<?> getAllStoragesByHousehold(@PathVariable String householdId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Speicheranlagen wurden erfolgreich angefragt.",
+                    new ApiResponse(true, false, "已成功查询储能系统.",
                             service.getAllByHouseholdId(householdId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -73,7 +73,7 @@ public class StorageController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -88,7 +88,7 @@ public class StorageController {
     public ResponseEntity<?> getOneStorage(@PathVariable String storageId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, String.format("Die Speicheranlage %s wurde erfolgreich angefragt.", storageId), converter.toApplication(service.get(storageId)))
+                    new ApiResponse(true, false, String.format("储能系统 %s 已成功请求.", storageId), converter.toApplication(service.get(storageId)))
                     , HttpStatus.OK);
         } catch (StorageServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -96,7 +96,7 @@ public class StorageController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -114,14 +114,14 @@ public class StorageController {
         try {
             service.saveWithDecentralizedPowerPlant(converter.toDomain(dto), decentralizedPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(
-                    true, false, String.format("Die Speicheranlage %s wurde erfolgreich angelegt.", dto.getStorageId()), null));
+                    true, false, String.format("储能系统 %s 已成功创建.", dto.getStorageId()), null));
         } catch (StorageServiceException | StorageException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -139,14 +139,14 @@ public class StorageController {
         try {
             service.saveWithHousehold(converter.toDomain(dto), householdId);
             return ResponseEntity.ok().body(new ApiResponse(
-                    true, false, String.format("Die Speicheranlage %s wurde erfolgreich angelegt.", dto.getStorageId()), null));
+                    true, false, String.format("储能系统 %s 已成功创建.", dto.getStorageId()), null));
         } catch (StorageServiceException | StorageException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -162,14 +162,14 @@ public class StorageController {
     public ResponseEntity<?> deleteStorage(@PathVariable String storageId, @RequestParam String virtualPowerPlantId) {
         try {
             service.delete(storageId, virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("Die Speicheranlage %s wurde erfolgreich gelöscht.", storageId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("储能系统 %s 已成功删除.", storageId), null));
         } catch (StorageServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -186,14 +186,14 @@ public class StorageController {
     public ResponseEntity<?> updateStorage(@PathVariable String storageId, @RequestBody StorageDTO newDto, @RequestParam String virtualPowerPlantId) {
         try {
             service.update(storageId, converter.toDomain(newDto), virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("Die Speicheranlage %s wurde erfolgreich aktualisiert.", storageId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("储能系统 %s 已成功更新.", storageId), null));
         } catch (StorageServiceException | StorageException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

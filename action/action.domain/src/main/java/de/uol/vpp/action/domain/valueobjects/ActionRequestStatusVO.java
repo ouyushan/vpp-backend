@@ -13,7 +13,7 @@ public class ActionRequestStatusVO {
 
     public ActionRequestStatusVO(StatusEnum value) throws ActionException {
         if (value == null) {
-            throw new ActionException("status", "Handlungsempfehlung");
+            throw new ActionException("status", "操作请求");
         }
         this.value = value;
     }

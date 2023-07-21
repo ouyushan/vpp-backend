@@ -46,7 +46,7 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
                 return result;
             } else {
                 throw new HouseholdRepositoryException(
-                        String.format("Das VK %s konnte nicht gefunden werden, um dessen Haushalte abzufragen.", virtualPowerPlantAggregate.getVirtualPowerPlantId().getValue())
+                        String.format("虚拟电厂 %s 不存在对应的住户信息.", virtualPowerPlantAggregate.getVirtualPowerPlantId().getValue())
                 );
             }
         } catch (HouseholdException e) {
@@ -88,7 +88,7 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
             jpaRepository.delete(household);
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("Der Haushalt %s konnte nicht gelöscht werden, da der Haushalt nicht gefunden wurde.", id.getValue())
+                    String.format("预算 %s 无法删除, 因为住户信息不存在.", id.getValue())
             );
         }
     }
@@ -107,13 +107,13 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
                 virtualPowerPlantJpaRepository.save(virtualPowerPlantJpaEntity);
             } else {
                 throw new HouseholdRepositoryException(
-                        String.format("Der Haushalt %s konnte dem VK %s nicht zu gewiesen werden, da der Haushalt bereits einer Entität zugewiesen wurde.", entity.getHouseholdId().getValue(),
+                        String.format("预算 %s 分配虚拟电厂 %s 因为预算已经分配给一个实体.", entity.getHouseholdId().getValue(),
                                 jpaEntity.getVirtualPowerPlant().getId())
                 );
             }
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("Der Haushalt %s konnte dem VK %s nicht zugewiesen werden.", entity.getHouseholdId().getValue(),
+                    String.format("预算 %s 分配虚拟电厂%s 未指定的.", entity.getHouseholdId().getValue(),
                             virtualPowerPlant.getVirtualPowerPlantId().getValue())
             );
         }
@@ -130,7 +130,7 @@ public class HouseholdRepositoryImpl implements IHouseholdRepository {
             jpaRepository.save(jpaEntity);
         } else {
             throw new HouseholdRepositoryException(
-                    String.format("Der Haushalt %s konnte nicht aktualisiert werden, da der Haushalt nicht gefunden wurde.", id.getValue())
+                    String.format("预算 %s 无法更新, 因为住户信息不存在.", id.getValue())
             );
         }
     }

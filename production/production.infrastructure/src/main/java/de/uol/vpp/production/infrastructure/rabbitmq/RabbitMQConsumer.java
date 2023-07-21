@@ -21,8 +21,8 @@ public class RabbitMQConsumer {
 
     @RabbitListener(queues = "${vpp.rabbitmq.queue.action.to.production}")
     public void receivedActionRequest(ActionRequestMessage message) {
-        log.info("Maßnahmenabfrage wurde erstellt und entgegengenommen: Maßnahmenabfrage {}, VK {}", message.getActionRequestId(), message.getVppId());
-        log.info("Die Erstellung der Erzeugungsprognose wird gestartet...");
+        log.info("接收操作请求: 操作请求 {}, 虚拟电厂 {}", message.getActionRequestId(), message.getVppId());
+        log.info("发电量预测的请求已开始...");
         productionScheduler.createProduction(message);
     }
 

@@ -16,14 +16,14 @@ public class ManipulationStartEndTimestampVO {
 
     public ManipulationStartEndTimestampVO(Long start, Long end) throws ManipulationException {
         if (start == null || end == null || end < start) {
-            throw new ManipulationException("startEndTimestamp", "Manipulation");
+            throw new ManipulationException("startEndTimestamp", "操作");
         }
 
         try {
             this.start = TimestampUtils.toBerlinTimestamp(start, true);
             this.end = TimestampUtils.toBerlinTimestamp(end, true);
         } catch (Exception e) {
-            throw new ManipulationException("startEndTimestamp", "Manipulation", e);
+            throw new ManipulationException("startEndTimestamp", "操作", e);
         }
     }
 }

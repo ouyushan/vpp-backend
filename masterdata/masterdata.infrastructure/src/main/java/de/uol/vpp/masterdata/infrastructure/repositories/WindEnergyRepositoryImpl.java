@@ -107,7 +107,7 @@ public class WindEnergyRepositoryImpl implements IWindEnergyRepository {
                     decentralizedPowerPlantJpaRepository.save(dpp.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die Zuweisung der Windkraftanlage %s ist fehlgeschlagen, da die Windkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
+                            String.format("Die Zuweisung der Windkraftanlage %s 失败, da die Windkraftanlage bereits einer Entität zugewiesen ist.", domainEntity.getId().getValue())
                     );
                 }
             } else {
@@ -136,7 +136,7 @@ public class WindEnergyRepositoryImpl implements IWindEnergyRepository {
                     householdJpaRepository.save(household.get());
                 } else {
                     throw new ProducerRepositoryException(
-                            String.format("Die Zuweisung der Windkraftanlage %s ist fehlgeschlagen, da dieser Anlage bereits zugewiesen ist", domainEntity.getId().getValue())
+                            String.format("Die Zuweisung der Windkraftanlage %s 失败, da dieser Anlage bereits zugewiesen ist", domainEntity.getId().getValue())
                     );
                 }
             } else {

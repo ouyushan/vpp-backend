@@ -36,7 +36,7 @@ public class RabbitMQConsumer {
 
     @RabbitListener(queues = "${vpp.rabbitmq.queue.load.to.action.failed}")
     public void receivedActionFailedMessage(ActionRequestFailedMessage actionRequestFailedMessage) {
-        log.info("Der Prozess der Maßnahmenabfrage {} ist fehlgeschlagen.", actionRequestFailedMessage.getActionRequestId());
+        log.info("操作请求 {} 失败.", actionRequestFailedMessage.getActionRequestId());
         actionCatalogInfrastructureService.actionFailed(actionRequestFailedMessage.getActionRequestId());
     }
 
@@ -50,7 +50,7 @@ public class RabbitMQConsumer {
         } catch (ActionRepositoryException | ActionException e) {
             log.error(e);
         }
-        log.info("Lastprognose erhalten: Maßnahmenabfrage {},  Zeitstempel {}", loadMessage.getActionRequestId(), loadMessage.getTimestamp());
+        log.info("收到的负荷预测：操作请求 {},  时间戳 {}", loadMessage.getActionRequestId(), loadMessage.getTimestamp());
     }
 
     private synchronized void incrementAndCheck(String actionRequestId) {
@@ -62,43 +62,43 @@ public class RabbitMQConsumer {
 
         if (actionRequestIdCounterMap.get(actionRequestId) == 2) {
             actionRequestIdCounterMap.remove(actionRequestId);
-            log.info("Die Prognosen für die Maßnahmenabfrage {} wurden entgegengenommen.", actionRequestId);
+            log.info("操作请求 {} 没有收到.", actionRequestId);
             try {
                 actionCatalogInfrastructureService.createActionCatalogs(actionRequestId);
             } catch (ActionException | ActionRepositoryException | MasterdataRestClientException | LoadRestClientException | ProductionRestClientException e) {
-                log.error("Bei der Erstellung der Maßnahmenabfrage ist ein Fehler aufgetreten.", e);
+                log.error("创建操作查询时出错.", e);
                 actionCatalogInfrastructureService.actionFailed(actionRequestId);
             }
         } else if (actionRequestIdCounterMap.get(actionRequestId) == 1) {
-            log.info("Die erste Prognose für die Maßnahmenabfrage {} wurde entgegengenommen. Zweite Prognose wird erwartet...", actionRequestId);
+            log.info("处理操作下一次预测 {} 被接收. 预计第二次预测...", actionRequestId);
             new Thread(() -> {
-                log.info("Das Warten für die zweite Prognose für die Maßnahmenabfrage {} hat begonnen.", actionRequestId);
+                log.info("等待操作请求的第二次预测 {} 已经开始.", actionRequestId);
                 if (actionRequestIdCounterMap.get(actionRequestId) == 1) {
                     try {
                         TimeUnit.MINUTES.sleep(5);
                     } catch (InterruptedException e) {
-                        log.info("Während des Wartens auf die Prognosen ist ein Fehler auftreten. (Maßnahmenabfrage {})", actionRequestId);
+                        log.info("等待预测时出错. (操作请求 {})", actionRequestId);
                         actionCatalogInfrastructureService.actionFailed(actionRequestId);
                     } finally {
                         if (actionRequestIdCounterMap.get(actionRequestId) != null) {
                             if (actionRequestIdCounterMap.get(actionRequestId) == 1) {
-                                log.info("Während des Wartens auf die zweite Prognose ist ein Fehler aufgetreten. (Maßnahmenabfrage {})", actionRequestId);
+                                log.info("等待第二个预测时出错. (操作请求 {})", actionRequestId);
                                 actionRequestIdCounterMap.remove(actionRequestId);
                             }
                         }
-                        log.info("Das Warten auf die Prognosen wurde beendet. (Maßnahmenabfrage {})", actionRequestId);
+                        log.info("等待预测已结束. (操作请求 {})", actionRequestId);
                     }
                 }
             }).start();
         } else {
-            log.info("Bei Empfangen der Prognosen ist etwas fehlgeschlagen. (Maßnahmenabfrage {})", actionRequestId);
+            log.info("接收预测时出现故障. (操作请求 {})", actionRequestId);
             actionCatalogInfrastructureService.actionFailed(actionRequestId);
         }
     }
 
     @RabbitListener(queues = "${vpp.rabbitmq.queue.production.to.action}")
     public void receivedProductionMessage(ProductionMessage productionMessage) {
-        log.info("Erzeugungsprognose erhalten: Maßnahmenabfrage {}, Zeitstempel {}", productionMessage.getActionRequestId(), productionMessage.getTimestamp());
+        log.info("收到的发电预测：操作请求 {}, 时间戳 {}", productionMessage.getActionRequestId(), productionMessage.getTimestamp());
         this.incrementAndCheck(productionMessage.getActionRequestId());
     }
 

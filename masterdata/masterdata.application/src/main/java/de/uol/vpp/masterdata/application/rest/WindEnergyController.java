@@ -37,7 +37,7 @@ public class WindEnergyController {
     public ResponseEntity<?> getAllWindEnergysByDecentralizedPowerPlant(@PathVariable String decentralizedPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "风力发电机查询成功.",
+                    new ApiResponse(true, false, "风力电站查询成功.",
                             service.getAllByDecentralizedPowerPlantId(decentralizedPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -47,7 +47,7 @@ public class WindEnergyController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -63,7 +63,7 @@ public class WindEnergyController {
     public ResponseEntity<?> getAllWindEnergysByHousehold(@PathVariable String householdId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Windkraftanlagen wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "成功查询风力涡轮机.",
                             service.getAllByHouseholdId(householdId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -73,7 +73,7 @@ public class WindEnergyController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -89,7 +89,7 @@ public class WindEnergyController {
         try {
             return new ResponseEntity<>(
                     new ApiResponse(true, false,
-                            String.format("Die Windkraftanlage %s wurde erfolgreich abgefragt.", windEnergyId), converter.toApplication(service.get(windEnergyId)))
+                            String.format("风力电站 %s 已成功查询.", windEnergyId), converter.toApplication(service.get(windEnergyId)))
                     , HttpStatus.OK);
         } catch (ProducerServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
@@ -97,7 +97,7 @@ public class WindEnergyController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -115,14 +115,14 @@ public class WindEnergyController {
             service.saveWithDecentralizedPowerPlant(converter.toDomain(dto), decentralizedPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(
                     true, false,
-                    String.format("Die Windkraftanlage %s wurde erfolgreich angelegt.", dto.getWindEnergyId()), null));
+                    String.format("风力电站 %s 已成功创建.", dto.getWindEnergyId()), null));
         } catch (ProducerServiceException | ProducerException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -141,14 +141,14 @@ public class WindEnergyController {
             service.saveWithHousehold(converter.toDomain(dto), householdId);
             return ResponseEntity.ok().body(new ApiResponse(
                     true, false,
-                    String.format("Die Windkraftanlage %s wurde erfolgreich angelegt.", dto.getWindEnergyId()), null));
+                    String.format("风力电站 %s 已成功创建.", dto.getWindEnergyId()), null));
         } catch (ProducerServiceException | ProducerException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -166,14 +166,14 @@ public class WindEnergyController {
             service.delete(windEnergyId, virtualPowerPlantId);
             return ResponseEntity.ok().body(
                     new ApiResponse(true, false,
-                            String.format("Die Windkraftanlage %s wurde erfolgreicht entfernt.", windEnergyId), null));
+                            String.format("风力电站 %s 已成功删除.", windEnergyId), null));
         } catch (ProducerServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -191,14 +191,14 @@ public class WindEnergyController {
         try {
             service.update(windEnergyId, converter.toDomain(newDto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Die Windkraftanlage %s wurde erfolgreich aktualisiert.", windEnergyId), null));
+                    String.format("风力电站 %s 已成功更新.", windEnergyId), null));
         } catch (ProducerServiceException | ProducerException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

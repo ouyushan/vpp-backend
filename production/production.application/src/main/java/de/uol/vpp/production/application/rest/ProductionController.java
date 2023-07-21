@@ -39,7 +39,7 @@ public class ProductionController {
     public ResponseEntity<?> getAllProductionsByActionRequestId(@PathVariable String actionRequestId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Abfrage aller Stromerzeugungen war erfolgreich.",
+                    new ApiResponse(true, false, "查询所有发电量成功.",
                             productionService.getProductionsByActionRequestId(actionRequestId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -51,7 +51,7 @@ public class ProductionController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

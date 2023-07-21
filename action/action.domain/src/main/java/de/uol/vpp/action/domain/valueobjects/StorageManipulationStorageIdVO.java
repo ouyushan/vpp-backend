@@ -12,7 +12,7 @@ public class StorageManipulationStorageIdVO {
 
     public StorageManipulationStorageIdVO(String value) throws ManipulationException {
         if (value == null || value.isBlank() || value.isEmpty()) {
-            throw new ManipulationException("storageId", "StorageManipulation");
+            throw new ManipulationException("storageId", "储能操作");
         }
         this.value = value.toUpperCase();
     }

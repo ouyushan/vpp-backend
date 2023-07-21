@@ -36,7 +36,7 @@ public class HouseholdController {
     public ResponseEntity<?> getAllHouseholdsByVirtualPowerPlantId(@PathVariable String virtualPowerPlantId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Haushalte wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "查询住户信息成功.",
                             service.getAllByVppId(virtualPowerPlantId)
                                     .stream()
                                     .map(converter::toApplication)
@@ -46,7 +46,7 @@ public class HouseholdController {
             return new ResponseEntity<>(new ApiResponse(false, false, e.getMessage(), null), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -61,7 +61,7 @@ public class HouseholdController {
     public ResponseEntity<?> getOneHousehold(@PathVariable String householdId) {
         try {
             return new ResponseEntity<>(
-                    new ApiResponse(true, false, "Die Haushalte wurden erfolgreich abgefragt.",
+                    new ApiResponse(true, false, "查询住户信息成功.",
                             converter.toApplication(service.get(householdId)))
                     , HttpStatus.OK);
         } catch (HouseholdServiceException e) {
@@ -70,7 +70,7 @@ public class HouseholdController {
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -88,14 +88,14 @@ public class HouseholdController {
         try {
             service.save(converter.toDomain(dto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(
-                    true, false, String.format("Der Haushalt %s wurde erfolgreich angelegt.", dto.getHouseholdId()), null));
+                    true, false, String.format("预算 %s 已成功创建.", dto.getHouseholdId()), null));
         } catch (HouseholdServiceException | HouseholdException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
 
@@ -112,14 +112,14 @@ public class HouseholdController {
     public ResponseEntity<?> deleteHousehold(@PathVariable String householdId, String virtualPowerPlantId) {
         try {
             service.delete(householdId, virtualPowerPlantId);
-            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("Der Haushalt %s wurde erfolgreich gelöscht.", householdId), null));
+            return ResponseEntity.ok().body(new ApiResponse(true, false, String.format("预算 %s 已成功删除.", householdId), null));
         } catch (HouseholdServiceException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }
@@ -137,14 +137,14 @@ public class HouseholdController {
         try {
             service.update(householdId, converter.toDomain(newDto), virtualPowerPlantId);
             return ResponseEntity.ok().body(new ApiResponse(true, false,
-                    String.format("Der Haushalt %s wurde erfolgreich aktualisiert.", householdId), null));
+                    String.format("预算 %s 已成功更新.", householdId), null));
         } catch (HouseholdServiceException | HouseholdException e) {
             return new ResponseEntity<>(new ApiResponse(
                     false, false, e.getMessage(), null
             ), HttpStatus.NOT_FOUND);
         } catch (DataIntegrityViolationException sqlException) {
             return new ResponseEntity<>(new ApiResponse(
-                    false, false, "Es ist ein Datenintegritätsfehler aufgetreten.", null
+                    false, false, "发生数据完整性错误.", null
             ), HttpStatus.NOT_FOUND);
         }
     }

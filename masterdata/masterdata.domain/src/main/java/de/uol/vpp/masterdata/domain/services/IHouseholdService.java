@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * Schnittstellendefinition für den Haushalts-Service in der Serviceschicht
- * 服务层家庭服务的接口定义
+ * 服务层住户服务的接口定义
  */
 public interface IHouseholdService {
     /**

@@ -52,9 +52,9 @@ public class MasterdataRestClient {
                 }
             }
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage des Veröffentlichenstatus des VK %s mittels dem Datenservice ist fehlgeschlagen.", virtualPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询虚拟电厂 %s 的发布状态失败.", virtualPowerPlantId), e);
         }
-        throw new MasterdataRestClientException(String.format("Die Abfrage des Veröffentlichenstatus des VK %s mittels dem Datenservice ist fehlgeschlagen.", virtualPowerPlantId));
+        throw new MasterdataRestClientException(String.format("通过数据服务查询虚拟电厂 %s 的发布状态失败.", virtualPowerPlantId));
     }
 
     /**
@@ -83,7 +83,7 @@ public class MasterdataRestClient {
             }
             return ids;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Haushalte des VK %s mittels dem Datenservice ist fehlgeschlagen.", virtualPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询虚拟电厂 %s 的住户信息失败.", virtualPowerPlantId), e);
         }
     }
 
@@ -113,7 +113,7 @@ public class MasterdataRestClient {
             }
             return ids;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der DK des VK %s mittels dem Datenservice ist fehlgeschlagen.", virtualPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询虚拟电厂 %s 的分布式电厂信息失败.", virtualPowerPlantId), e);
         }
     }
 
@@ -133,7 +133,7 @@ public class MasterdataRestClient {
             this.addWaterDTO(decentralizedPowerPlantId, waters, restTemplate, fooResourceUrl);
             return waters;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Wasserkraftwerke eines DK %s mittels dem Datenservice ist fehlgeschlagen.", decentralizedPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询水力分布式电厂 %s 失败.", decentralizedPowerPlantId), e);
         }
     }
 
@@ -187,7 +187,7 @@ public class MasterdataRestClient {
             this.addWaterDTO(householdId, waters, restTemplate, fooResourceUrl);
             return waters;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Wasserkraftwerke eines Haushaltes %s mittels dem Datenservice ist fehlgeschlagen.", householdId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询水力电站住户信息 %s 失败.", householdId), e);
         }
     }
 
@@ -207,7 +207,7 @@ public class MasterdataRestClient {
             addWindDTO(decentralizedPowerPlantId, winds, restTemplate, fooResourceUrl);
             return winds;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Windkraftanlagen eines DK %s mittels dem Datenservice ist fehlgeschlagen.", decentralizedPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询风力分布式电站 %s 失败.", decentralizedPowerPlantId), e);
         }
     }
 
@@ -261,7 +261,7 @@ public class MasterdataRestClient {
             addWindDTO(householdId, winds, restTemplate, fooResourceUrl);
             return winds;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Wasserkraftwerke eines Haushaltes %s mittels dem Datenservice ist fehlgeschlagen.", householdId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询水力电站住户信息 %s 失败.", householdId), e);
         }
     }
 
@@ -281,7 +281,7 @@ public class MasterdataRestClient {
             addSolarDTO(decentralizedPowerPlantId, solars, restTemplate, fooResourceUrl);
             return solars;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Solaranlagen eines DK %s mittels dem Datenservice ist fehlgeschlagen.", decentralizedPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务查询光伏分布式电站信息 %s 失败.", decentralizedPowerPlantId), e);
         }
     }
 
@@ -335,7 +335,7 @@ public class MasterdataRestClient {
             addOtherDTO(decentralizedPowerPlantId, others, restTemplate, fooResourceUrl);
             return others;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der alternativen Erzeugungsanlagen eines DK %s mittels dem Datenservice ist fehlgeschlagen.", decentralizedPowerPlantId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务从分布式电厂%s获取其它能源失败.", decentralizedPowerPlantId), e);
         }
     }
 
@@ -385,7 +385,7 @@ public class MasterdataRestClient {
             addOtherDTO(householdId, others, restTemplate, fooResourceUrl);
             return others;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der alternativen Erzeugungsanlagen eines Haushaltes %s mittels dem Datenservice ist fehlgeschlagen.", householdId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务获取住户%s其它能源失败.", householdId), e);
         }
     }
 
@@ -405,7 +405,7 @@ public class MasterdataRestClient {
             addSolarDTO(householdId, solars, restTemplate, fooResourceUrl);
             return solars;
         } catch (RestClientException | JsonProcessingException e) {
-            throw new MasterdataRestClientException(String.format("Die Abfrage der Solaranlagen eines Haushaltes %s mittels dem Datenservice ist fehlgeschlagen.", householdId), e);
+            throw new MasterdataRestClientException(String.format("通过数据服务获取住户%s光伏分布式发电站.", householdId), e);
         }
     }
 

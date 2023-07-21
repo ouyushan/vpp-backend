@@ -12,7 +12,7 @@ public class ManipulationActionRequestIdVO {
 
     public ManipulationActionRequestIdVO(String value) throws ManipulationException {
         if (value == null || value.isBlank() || value.isEmpty()) {
-            throw new ManipulationException("actionRequestId", "Manipulation");
+            throw new ManipulationException("actionRequestId", "操作");
         }
         this.value = value;
     }

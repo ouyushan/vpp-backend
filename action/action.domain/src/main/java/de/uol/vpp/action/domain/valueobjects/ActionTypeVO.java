@@ -13,7 +13,7 @@ public class ActionTypeVO {
 
     public ActionTypeVO(ActionTypeEnum value) throws ActionException {
         if (value == null) {
-            throw new ActionException("actionType", "Handlungsempfehlung");
+            throw new ActionException("actionType", "操作请求");
         }
         this.value = value;
     }

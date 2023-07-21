@@ -12,7 +12,7 @@ public class ProducerManipulationCapacityVO {
 
     public ProducerManipulationCapacityVO(Double value) throws ManipulationException {
         if (value == null || value < 0.) {
-            throw new ManipulationException("capacity", "ProducerManipulation");
+            throw new ManipulationException("capacity", "发电操作");
         }
         this.value = value;
     }
