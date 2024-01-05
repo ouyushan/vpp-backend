@@ -11,9 +11,6 @@ import java.io.Serializable;
 import java.time.ZonedDateTime;
 import java.util.Objects;
 
-/**
- * Primärschlüssel für Manipulationen-Entities
- */
 @Embeddable
 @Getter
 @Setter
@@ -21,17 +18,21 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ManipulationPrimaryKey implements Serializable {
 
+    // many to one relationship with ActionRequest
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "action_request_id", referencedColumnName = "actionRequestId")
     private ActionRequest actionRequest;
 
+    // column to store start timestamp
     @Column(nullable = false)
     private ZonedDateTime startTimestamp;
 
+    // column to store end timestamp
     @Column(nullable = false)
     private ZonedDateTime endTimestamp;
 
 
+    // compare two ManipulationPrimaryKey objects
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -42,6 +43,7 @@ public class ManipulationPrimaryKey implements Serializable {
                 Objects.equals(endTimestamp, that.endTimestamp);
     }
 
+    // generate hash code for the ManipulationPrimaryKey object
     @Override
     public int hashCode() {
         return Objects.hash(actionRequest.getActionRequestId(), startTimestamp, endTimestamp);

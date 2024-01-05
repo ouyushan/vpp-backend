@@ -9,9 +9,6 @@ import java.time.ZonedDateTime;
 import java.util.Objects;
 import java.util.Set;
 
-/**
- * Datenbank-Entität der Handlungsempfehlungskataloge
- */
 @Entity
 @Data
 public class ActionCatalog {
